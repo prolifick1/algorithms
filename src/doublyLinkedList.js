@@ -148,3 +148,5 @@ class DoublyLinked {
     return this;
   }
 }
+
+module.exports = DoublyLinked;

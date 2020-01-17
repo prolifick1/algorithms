@@ -144,3 +144,5 @@ class SinglyLinked {
     return this;
   }
 }
+
+module.exports = SinglyLinked;

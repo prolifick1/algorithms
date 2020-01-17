@@ -38,3 +38,5 @@ const mergeSort = arr => {
   let secondHalf = arr.slice(mid);
   return merge(mergeSort(firstHalf), mergeSort(secondHalf));
 };
+
+module.exports = mergeSort;
