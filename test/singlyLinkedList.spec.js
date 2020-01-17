@@ -99,12 +99,25 @@ describe('Singly Linked List Data Structure', () => {
     expect(list.tail.val).to.equal('duvet');
     expect(list.insert(0, 'rug')).to.equal(true);
     expect(list.head.val).to.equal('rug');
+    expect(list.insert(3, 'decor')).to.equal(true);
+    expect(list.get(3).val).to.equal('decor');
+    expect(list.head.val).to.equal('rug');
+    expect(list.tail.val).to.equal('duvet');
+    expect(list.insert(100, 'flowers')).to.equal(false);
   });
 
   it('Remmove method removes nodes at idx', () => {
     list.push('book');
     list.push('pencil');
     list.push('paper');
+    list.push('marker');
+    list.push('eraser');
+    expect(list.remove(0).val).to.equal('book');
+    expect(list.remove(3).val).to.equal('eraser');
+    expect(list.remove(1).val).to.equal('paper');
+    expect(list.remove(1).val).to.equal('marker');
+    expect(list.remove(0).val).to.equal('pencil');
+    expect(list.remove(0)).to.equal(undefined);
   });
 
   it('Reverse method reverses the list', () => {
