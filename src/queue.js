@@ -50,3 +50,5 @@ class Queue {
     return removed.val;
   }
 }
+
+module.exports = Queue;

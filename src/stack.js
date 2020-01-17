@@ -50,3 +50,5 @@ class Stack {
     return removed.val;
   }
 }
+
+module.exports = Stack;

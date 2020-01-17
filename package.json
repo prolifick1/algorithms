@@ -1,0 +1,29 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "Solutions to common computer science algorithms",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megan-donnelly/algorithms.git"
+  },
+  "keywords": [
+    "algorithms"
+  ],
+  "author": "Megan Donnelly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/megan-donnelly/algorithms/issues"
+  },
+  "homepage": "https://github.com/megan-donnelly/algorithms#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "http-server": "^0.11.1",
+    "jsdom": "^15.1.1",
+    "mocha": "^6.1.4",
+    "sinon": "^7.3.2"
+  }
+}
