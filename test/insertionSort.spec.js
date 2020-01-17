@@ -4,7 +4,6 @@ const insertionSort = require('../src/insertionSort');
 describe('Insertion Sort Algorithm', () => {
   it('sorts unsorted arrays', () => {
     let arr1 = [];
-    // .to.eql is not strictly equal
     expect(insertionSort(arr1)).to.eql([]);
 
     let arr2 = [55];

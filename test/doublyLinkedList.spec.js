@@ -1,11 +1,11 @@
 const { expect } = require('chai');
-const SinglyLinked = require('../src/singlyLinkedList');
+const DoublyLinked = require('../src/doublyLinkedList');
 
-describe('Singly Linked List ADT', () => {
+describe('Doubly Linked List ADT', () => {
   let list;
 
-  beforeEach('create new singly linked list', () => {
-    list = new SinglyLinked();
+  beforeEach('create new doubly linked list', () => {
+    list = new DoublyLinked();
   });
 
   it('Push method adds nodes to tail of list', () => {
@@ -26,13 +26,13 @@ describe('Singly Linked List ADT', () => {
     list.push('c');
     expect(list.head.val).to.equal('a');
     expect(list.tail.val).to.equal('c');
-    expect(list.pop()).to.eql({ val: 'c', next: null });
+    expect(list.pop()).to.eql({ val: 'c', next: null, prev: null });
     expect(list.head.val).to.equal('a');
     expect(list.tail.val).to.equal('b');
-    expect(list.pop()).to.eql({ val: 'b', next: null });
+    expect(list.pop()).to.eql({ val: 'b', next: null, prev: null });
     expect(list.head.val).to.equal('a');
     expect(list.tail.val).to.equal('a');
-    expect(list.pop()).to.eql({ val: 'a', next: null });
+    expect(list.pop()).to.eql({ val: 'a', next: null, prev: null });
     expect(list.head).to.equal(null);
     expect(list.tail).to.equal(null);
   });
@@ -124,13 +124,7 @@ describe('Singly Linked List ADT', () => {
     list.push('first');
     list.push('second');
     list.push('third');
-    expect(list.reverse().head).to.eql({
-      val: 'third',
-      next: { val: 'second', next: { val: 'first', next: null } },
-    });
-    expect(list.reverse().head).to.eql({
-      val: 'first',
-      next: { val: 'second', next: { val: 'third', next: null } },
-    });
+    expect(list.reverse().head.val).to.equal('third');
+    expect(list.reverse().head.val).to.equal('first');
   });
 });

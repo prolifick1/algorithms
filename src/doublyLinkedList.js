@@ -78,7 +78,7 @@ class DoublyLinked {
     let isLess = idx < mid;
     let current = isLess ? this.head : this.tail;
     let count = isLess ? 0 : this.length - 1;
-    while (count !== current) {
+    while (count !== idx) {
       if (isLess) {
         current = current.next;
         count++;
@@ -121,7 +121,7 @@ class DoublyLinked {
     // Beginning O(1)
     if (idx === 0) return this.shift();
     // End O(1) --> Better than singly linked
-    if (idx === this.length) return this.pop();
+    if (idx === this.length - 1) return this.pop();
     // Middle O(n) for searching
     let removed = this.get(idx);
     let before = removed.prev;
