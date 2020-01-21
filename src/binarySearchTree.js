@@ -50,22 +50,43 @@ class BinarySearchTree {
   }
 
   insert(val) {
+    // O(log(n)) *if tree is balanced*
     let node = new Node(val);
-    let current = this.root;
-    while (current) {
-      if (val >= current.val) {
-        if (current.right) current.right.insert(val);
-        else current.right = node;
-      } else {
-        if (current.left) current.left.insert(val);
-        else current.left = node;
+    if (!this.root) {
+      this.root = node;
+    } else {
+      let current = this.root;
+      while (current) {
+        if (val >= current.val) {
+          if (current.right) {
+            current = current.right;
+          } else {
+            current.right = node;
+            break;
+          }
+        } else {
+          if (current.left) {
+            current = current.left;
+          } else {
+            current.left = node;
+            break;
+          }
+        }
       }
     }
-    current = node;
     return this;
   }
 
-  search(val) {}
+  find(val) {
+    // O(log(n)) *if the tree is balanced*
+    let current = this.root;
+    while (current) {
+      if (current.val === val) return true;
+      else if (current.val > val) current = current.left;
+      else current = current.right;
+    }
+    return false;
+  }
 }
 
 module.exports = BinarySearchTree;
