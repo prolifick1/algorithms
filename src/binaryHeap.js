@@ -21,15 +21,16 @@ Overview:
 - Binary Heaps can be stored using an Array
 - To find children from parent: left = 2n + 1, right = 2n + 2
 - To find parent from child: Math.floor((n - 1) / 2)
-- Insert method
+- Insert method - O(log N)
   - Add to the end
   - Bubble up to the correct position
     - Compare to parent and swap as needed
     - Continue swaping until settled
-- Remove method
+- Remove method - O(log N)
   - Remove the root
   - Replace with the most recently added
   - Adjust (sink down)
+- Search - O(log N)
 */
 
 class MaxBinaryHeap {
