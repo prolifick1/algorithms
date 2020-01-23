@@ -2,13 +2,12 @@
 
 Overview:
 - Heaps are a type of tree
-- Very similar to a binary search tree, with some different rules
+- No gaurentees between sibilings, could be greater than or less than or equal to
+- Always as compact as possible, meaning it will fill up a level before
+  moving on to the next level
+- Starts by filling up the left side first moves towards right
 - Binary Heap:
   - At most two child nodes
-  - No gaurentees between sibilings, could be greater than or less than or equal to
-  - Always as compact as possible, meaning it will fill up a level before
-    moving on to the next level
-  - Starts by filling up the left side first moves towards right
 - Min Heap:
   - Parent nodes are always smaller than child nodes
 - Max Heap:
