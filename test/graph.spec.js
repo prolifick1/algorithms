@@ -50,4 +50,86 @@ describe('Graph Implementation', () => {
     expect(graph.adjacencyList).to.not.ownProperty('Chicago')
   })
 
+  it(`depthFirstSearchRecursive method does a depth first traversal of nodes`, ()=> {
+    graph.addVertex('A')
+    graph.addVertex('B')
+    graph.addVertex('C')
+    graph.addVertex('D')
+    graph.addVertex('E')
+    graph.addVertex('F')
+
+    graph.addEdge('A','B')
+    graph.addEdge('A','C')
+    graph.addEdge('B','D')
+    graph.addEdge('C','E')
+    graph.addEdge('D','E')
+    graph.addEdge('D','F')
+    graph.addEdge('E','F')
+
+    // {
+    //   A: [ 'B', 'C' ],
+    //   B: [ 'A', 'D' ],
+    //   C: [ 'A', 'E' ],
+    //   D: [ 'B', 'E', 'F' ],
+    //   E: [ 'C', 'D', 'F' ],
+    //   F: [ 'D', 'E' ]
+    // }
+
+    //        A
+    //      /   \
+    //     B     C
+    //     |     |
+    //     D --- E
+    //      \   /
+    //        F
+
+    expect(graph.depthFirstSearchRecursive('A')).to.eql(['A','B','D','E','C','F'])
+    expect(graph.depthFirstSearchRecursive('B')).to.eql(['B','A','C','E','D','F'])
+    expect(graph.depthFirstSearchRecursive('C')).to.eql(['C','A','B','D','E','F'])
+    expect(graph.depthFirstSearchRecursive('D')).to.eql(['D','B','A','C','E','F'])
+    expect(graph.depthFirstSearchRecursive('E')).to.eql(['E','C','A','B','D','F'])
+    expect(graph.depthFirstSearchRecursive('F')).to.eql(['F','D','B','A','C','E'])
+  })
+
+  it(`depthFirstSearchIterative method does a depth first traversal of nodes`, ()=> {
+    graph.addVertex('A')
+    graph.addVertex('B')
+    graph.addVertex('C')
+    graph.addVertex('D')
+    graph.addVertex('E')
+    graph.addVertex('F')
+
+    graph.addEdge('A','B')
+    graph.addEdge('A','C')
+    graph.addEdge('B','D')
+    graph.addEdge('C','E')
+    graph.addEdge('D','E')
+    graph.addEdge('D','F')
+    graph.addEdge('E','F')
+
+    // {
+    //   A: [ 'B', 'C' ],
+    //   B: [ 'A', 'D' ],
+    //   C: [ 'A', 'E' ],
+    //   D: [ 'B', 'E', 'F' ],
+    //   E: [ 'C', 'D', 'F' ],
+    //   F: [ 'D', 'E' ]
+    // }
+
+    //        A
+    //      /   \
+    //     B     C
+    //     |     |
+    //     D --- E
+    //      \   /
+    //        F
+
+    expect(graph.depthFirstSearchIterative('A')).to.eql(['A','B','D','E','C','F'])
+    expect(graph.depthFirstSearchIterative('B')).to.eql(['B','A','C','E','D','F'])
+    expect(graph.depthFirstSearchIterative('C')).to.eql(['C','A','B','D','E','F'])
+    expect(graph.depthFirstSearchIterative('D')).to.eql(['D','B','A','C','E','F'])
+    expect(graph.depthFirstSearchIterative('E')).to.eql(['E','C','A','B','D','F'])
+    expect(graph.depthFirstSearchIterative('F')).to.eql(['F','D','B','A','C','E'])
+  })
+
 })

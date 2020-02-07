@@ -75,6 +75,52 @@ class Graph {
     delete this.adjacencyList[vertex]
     return this
   }
+
+  depthFirstSearchRecursive(vertex, visited = {}) {
+    let order = []
+    if (!visited[vertex]) {
+      visited[vertex] = true
+      order.push(vertex)
+      this.adjacencyList[vertex].forEach(v => {
+        order = order.concat(this.depthFirstSearchRecursive(v, visited))
+      })
+    }
+    return order
+  }
+
+  depthFirstSearchIterative(vertex) {
+    let visited = {}
+    let queue = [vertex]
+    let order = []
+    while (queue.length) {
+      let current = queue.shift()
+      if (!visited[current]) {
+        visited[current] = true
+        order.push(current)
+        this.adjacencyList[current].forEach(v => {
+          queue.push(v)
+        })
+      }
+    }
+    return order
+  }
+
+  breadthFirstSearchIterative(vertex) {
+    let visited = {}
+    let queue = [vertex]
+    let order = []
+    while (queue.length) {
+      let current = queue.shift()
+      if (!visited[current]) {
+        visited[current] = true
+        order.push(current)
+        this.adjacencyList[current].forEach(v => {
+          queue.push(v)
+        })
+      }
+    }
+    return order
+  }
 }
 
 module.exports = Graph
