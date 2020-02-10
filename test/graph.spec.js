@@ -124,12 +124,52 @@ describe('Graph Implementation', () => {
     //      \   /
     //        F
 
-    expect(graph.depthFirstSearchIterative('A')).to.eql(['A','B','D','E','C','F'])
-    expect(graph.depthFirstSearchIterative('B')).to.eql(['B','A','C','E','D','F'])
-    expect(graph.depthFirstSearchIterative('C')).to.eql(['C','A','B','D','E','F'])
-    expect(graph.depthFirstSearchIterative('D')).to.eql(['D','B','A','C','E','F'])
-    expect(graph.depthFirstSearchIterative('E')).to.eql(['E','C','A','B','D','F'])
-    expect(graph.depthFirstSearchIterative('F')).to.eql(['F','D','B','A','C','E'])
+    expect(graph.depthFirstSearchIterative('A')).to.eql(['A','C','E','F','D','B'])
+    expect(graph.depthFirstSearchIterative('B')).to.eql(['B','D','F','E','C','A'])
+    expect(graph.depthFirstSearchIterative('C')).to.eql(['C','E','F','D','B','A'])
+    expect(graph.depthFirstSearchIterative('D')).to.eql(['D','F','E','C','A','B'])
+    expect(graph.depthFirstSearchIterative('E')).to.eql(['E','F','D','B','A','C'])
+    expect(graph.depthFirstSearchIterative('F')).to.eql(['F','E','D','B','A','C'])
+  })
+
+  it(`breadthFirstSearch method does a breadth first traversal of nodes`, () => {
+    graph.addVertex('A')
+    graph.addVertex('B')
+    graph.addVertex('C')
+    graph.addVertex('D')
+    graph.addVertex('E')
+    graph.addVertex('F')
+
+    graph.addEdge('A','B')
+    graph.addEdge('A','C')
+    graph.addEdge('B','D')
+    graph.addEdge('C','E')
+    graph.addEdge('D','E')
+    graph.addEdge('D','F')
+    graph.addEdge('E','F')
+
+    // {
+    //   A: [ 'B', 'C' ],
+    //   B: [ 'A', 'D' ],
+    //   C: [ 'A', 'E' ],
+    //   D: [ 'B', 'E', 'F' ],
+    //   E: [ 'C', 'D', 'F' ],
+    //   F: [ 'D', 'E' ]
+    // }
+
+    //        A
+    //      /   \
+    //     B     C
+    //     |     |
+    //     D --- E
+    //      \   /
+    //        F
+    expect(graph.breadthFirstSearch('A')).to.eql(['A','B','C','D','E','F'])
+    expect(graph.breadthFirstSearch('B')).to.eql(['B','A','D','C','E','F'])
+    expect(graph.breadthFirstSearch('C')).to.eql(['C','A','E','B','D','F'])
+    expect(graph.breadthFirstSearch('D')).to.eql(['D','B','E','F','A','C'])
+    expect(graph.breadthFirstSearch('E')).to.eql(['E','C','D','F','A','B'])
+    expect(graph.breadthFirstSearch('F')).to.eql(['F','D','E','B','C','A'])
   })
 
 })

@@ -76,38 +76,38 @@ class Graph {
     return this
   }
 
-  depthFirstSearchRecursive(vertex, visited = {}) {
+  depthFirstSearchRecursive(start, visited = {}) {
     let order = []
-    if (!visited[vertex]) {
-      visited[vertex] = true
-      order.push(vertex)
-      this.adjacencyList[vertex].forEach(v => {
+    order.push(start)
+    visited[start] = true
+    this.adjacencyList[start].forEach(v => {
+      if (!visited[v]) {
         order = order.concat(this.depthFirstSearchRecursive(v, visited))
-      })
-    }
+      }
+    })
     return order
   }
 
-  depthFirstSearchIterative(vertex) {
+  depthFirstSearchIterative(start) {
     let visited = {}
-    let queue = [vertex]
+    let stack = [start]
     let order = []
-    while (queue.length) {
-      let current = queue.shift()
+    while (stack.length) {
+      let current = stack.pop()
       if (!visited[current]) {
-        visited[current] = true
         order.push(current)
+        visited[current] = true
         this.adjacencyList[current].forEach(v => {
-          queue.push(v)
+          stack.push(v)
         })
       }
     }
     return order
   }
 
-  breadthFirstSearchIterative(vertex) {
+  breadthFirstSearch(start) {
     let visited = {}
-    let queue = [vertex]
+    let queue = [start]
     let order = []
     while (queue.length) {
       let current = queue.shift()
