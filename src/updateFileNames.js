@@ -16,11 +16,8 @@ function updateFileNames(S) {
       let details = photo.split(', ')
       // idx 1 holds city name
       let city = details[1]
-      if (visitedCities[city]) {
-          visitedCities[city].push(details)
-      } else {
-          visitedCities[city] = [details]
-      }
+      if (visitedCities[city]) visitedCities[city].push(details)
+      else visitedCities[city] = [details]
       return details
   })
 
@@ -53,7 +50,6 @@ function updateFileNames(S) {
         }
     })
   })
-  console.log(output)
   return output
 }
 
