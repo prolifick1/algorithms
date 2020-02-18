@@ -143,6 +143,25 @@ class SinglyLinked {
     }
     return this;
   }
+
+  rotate(num) {
+    let pos = num % this.length
+    let count = 0
+    let current = this.head
+    let prev = null
+    while (count !== pos && current) {
+      prev = current
+      current = current.next
+      count++
+    }
+    let prevHead = this.head
+    let prevTail = this.tail
+    prevTail.next = prevHead
+    this.head = current
+    this.tail = prev
+    this.tail.next = null
+    return this.head
+  }
 }
 
 module.exports = SinglyLinked;

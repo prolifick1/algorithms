@@ -133,4 +133,25 @@ describe('Singly Linked List ADT', () => {
       next: { val: 'second', next: { val: 'third', next: null } },
     });
   });
+
+  it('Rotates singly linked list', () => {
+    list.push(5).push(10).push(15).push(20).push(25)
+
+    expect(list.rotate(3)).to.eql({
+      val: 20,
+      next: {
+        val: 25,
+        next: {
+          val: 5,
+          next: {
+            val: 10,
+            next: {
+              val: 15,
+              next: null
+            }
+          }
+        }
+      }
+    })
+  })
 });
