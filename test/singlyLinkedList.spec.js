@@ -154,4 +154,25 @@ describe('Singly Linked List ADT', () => {
       }
     })
   })
+
+  it('Rotation can handle negative numbers', () => {
+    list.push(5).push(10).push(15).push(20).push(25)
+
+    expect(list.rotate(-2)).to.eql({
+      val: 20,
+      next: {
+        val: 25,
+        next: {
+          val: 5,
+          next: {
+            val: 10,
+            next: {
+              val: 15,
+              next: null
+            }
+          }
+        }
+      }
+    })
+  })
 });

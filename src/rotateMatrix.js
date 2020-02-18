@@ -4,7 +4,6 @@ const rotateMatrix = matrix => {
   let N = matrix.length
   for (let x = 0; x < (N/2); x++){
       for (let y = x; y < N - 1 - x; y++) {
-        console.log('[x,y]', x, y)
           // store current cell in temp variable
           let temp = matrix[x][y]
 

@@ -145,7 +145,8 @@ class SinglyLinked {
   }
 
   rotate(num) {
-    let pos = num % this.length
+    let pos = num >= 0 ? num % this.length : Math.abs(this.length + (num %this.length)) % this.length
+    if (pos === 0) return this.head
     let count = 0
     let current = this.head
     let prev = null
