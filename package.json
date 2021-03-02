@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/megan-donnelly/algorithms.git"
+    "url": ""
   },
   "keywords": [
     "algorithms"
   ],
-  "author": "Megan Donnelly",
+  "author": "prolifick1",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/megan-donnelly/algorithms/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/megan-donnelly/algorithms#readme",
+  "homepage": "",
   "dependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.1.4"
