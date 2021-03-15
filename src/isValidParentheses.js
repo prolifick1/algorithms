@@ -1,21 +1,24 @@
-function isValidParentheses(s) {
-  if(!s) return true;
+const isValidParentheses = function(s) {
   let stack = [];
   const brackets = new Map([
     ['[', ']'],
     ['{', '}'],
     ['(', ')']
   ]);
-  for(var i = 0; i < s.length; i++) {
+  if(!s) {
+    return true;
+  }
+
+  for(let i = 0; i < s.length; i++) {
     if(brackets.has(s[i])) {
       stack.push(s[i]);
+      console.log(`stack: ${stack}`);
     } else {
-      let char = stack.pop();
-      if(brackets.get(char) !== s[i] ) return false;
+      let val = stack.pop();
+      if (brackets.get(val) !== s[i]) return false;
     }
   }
-  if(stack.length !== 0) return false;
-  return true;
+  return stack.length === 0;
 }
 
 module.exports = isValidParentheses;
