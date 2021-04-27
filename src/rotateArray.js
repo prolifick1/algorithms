@@ -1,6 +1,5 @@
 let rotateArray = function(a, k) {
-  k = k % a.length;
-  
+  k=k%a.length;
   reverse(a, 0, a.length - 1);
   reverse(a, 0, k - 1);
   reverse(a, k, a.length - 1);
