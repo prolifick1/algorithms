@@ -21,7 +21,8 @@ describe('Maximum subarray', function () {
   });
 
   it('should return the max sum of a subarray', function () {
-    expect(maxSubArray([1, -1, 2, 3, -1])).to.equal(5);
+    expect(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]
+)).to.equal(6);
   });
 
   it('should return the max negative number when array with negative numbers is provided', function () {
