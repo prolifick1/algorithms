@@ -21,13 +21,13 @@ const insertionSort = arr => {
     // save the new value
     let newValue = arr[i];
     // compare the new value to the sorted elements
-    let j = i - 1;
-    for (j; j >= 0 && arr[j] > newValue; j--) {
+    let k = i - 1;
+    for (k; k >= 0 && arr[k] > newValue; k--) {
       // shift the larger value to the right
-      arr[j + 1] = arr[j];
+      arr[k + 1] = arr[k];
     }
     // insert new value at correct idx in sorted section
-    arr[j + 1] = newValue;
+    arr[k + 1] = newValue;
   }
   return arr;
 };
