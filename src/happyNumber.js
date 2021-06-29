@@ -1,10 +1,12 @@
 function happyNumber(n) {
   let set = new Set();
-  while (!set.has(n) && n > 0) {
+  while (!set.has(n)) {
     let sum = 0;
     set.add(n);
-    sum += Math.pow((n % 10), 2);
-    n = Math.floor(n / 10);
+    while (n > 0) {
+      sum += Math.pow((n % 10), 2);
+      n = Math.floor(n / 10);
+    }
     if (sum === 1) {
       return true
     }
