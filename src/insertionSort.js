@@ -17,17 +17,13 @@ Time & Space Complexity
 */
 
 const insertionSort = arr => {
-  for (let i = 1; i < arr.length; i++) {
-    // save the new value
-    let newValue = arr[i];
-    // compare the new value to the sorted elements
+  for(let i = 1; i < arr.length; i++) {
     let k = i - 1;
-    for (k; k >= 0 && arr[k] > newValue; k--) {
-      // shift the larger value to the right
-      arr[k + 1] = arr[k];
+    let newVal = arr[i];
+    for(k; arr[k] > newVal && k >= 0 ; k--) {
+      arr[k+1] = arr[k];
     }
-    // insert new value at correct idx in sorted section
-    arr[k + 1] = newValue;
+    arr[k+1] = newVal;
   }
   return arr;
 };
