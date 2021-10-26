@@ -1,15 +1,14 @@
 function twoSum(nums, target) {
-  let myMap = new Map();
-  for (let i = 0; i < nums.length; i++) {
-    let diff = target - nums[i];
-    if(myMap.has(diff)) {
-      return [myMap.get(diff), i];
+  let seen = new Map();
+  for(let i = 0; i < nums.length; i++) {
+   let needed = target - nums[i];
+    if(seen.has(needed)) {
+      return [seen.get(needed), i];
     } else {
-      myMap.set(nums[i], i)
-      //keep track of the nums you've already seen,
-      //one of them will make up the difference
-    }
+      seen.set(nums[i], i);
+    };
   }
   return [];
+	
 }
 module.exports = twoSum;

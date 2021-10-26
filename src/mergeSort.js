@@ -25,26 +25,24 @@ const merge = (arr1, arr2) => {
 			mergedArr.push(arr2[p2]);
 			p2++;
 		};
-
 	};
 	if(p1 < arr1.length) {
+
 		mergedArr = mergedArr.concat(arr1.slice(p1));
 	};
-	if(p2 < arr2.length) {
+	if(p2 < arr2.length) { 
 		mergedArr = mergedArr.concat(arr2.slice(p2));
 	};
 	return mergedArr;
 };
 
 const mergeSort = arr => {
-	if(arr.length === 0 || arr.length === 1) {
-		return arr;	
+	if(arr.length < 2) {
+		return arr;
 	};
 	let mid = Math.floor(arr.length / 2);
 	let leftHalf = arr.slice(0, mid);
 	let rightHalf = arr.slice(mid);
 	return merge(mergeSort(leftHalf), mergeSort(rightHalf));
-	
-};
-
+}
 module.exports = mergeSort;
