@@ -1,0 +1,13 @@
+{
+  "configurations": {
+    "run": {
+      "adapter": "vscode-node",
+      "configuration": {
+	"type" : "node",
+	"stopOnEntry": true,
+	"request": "launch",
+	"program": "${file}"
+      }
+    }
+  }
+}

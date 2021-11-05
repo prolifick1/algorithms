@@ -13,36 +13,37 @@ Time & Space Complexity
 - Space -> O(n) // Sub arr is created for each element
 */
 
-const merge = (arr1, arr2) => {
-	let p1 = 0;
-	let p2 = 0;
-	let mergedArr = [];
-	while(p1 < arr1.length && p2 < arr2.length) {
-		if(arr1[p1] < arr2[p2]) {
-			mergedArr.push(arr1[p1]);
-			p1++;
-		} else {
-			mergedArr.push(arr2[p2]);
-			p2++;
-		};
-	};
-	if(p1 < arr1.length) {
-
-		mergedArr = mergedArr.concat(arr1.slice(p1));
-	};
-	if(p2 < arr2.length) { 
-		mergedArr = mergedArr.concat(arr2.slice(p2));
-	};
-	return mergedArr;
-};
-
-const mergeSort = arr => {
-	if(arr.length < 2) {
-		return arr;
-	};
-	let mid = Math.floor(arr.length / 2);
-	let leftHalf = arr.slice(0, mid);
-	let rightHalf = arr.slice(mid);
-	return merge(mergeSort(leftHalf), mergeSort(rightHalf));
+function merge(arr1, arr2) {
+  let p1 = 0;
+  let p2 = 0;
+  let mergedArr = [];
+  while(p1 < arr1.length && p2 < arr2.length) {
+    if(arr1[p1] < arr2[p2]) {
+      mergedArr.push(arr1[p1]);
+      p1++;
+    } else {
+      mergedArr.push(arr2[p2]);
+      p2++;
+    }
+  }
+  if(p1 < arr1.length) {
+    mergedArr = mergedArr.concat(arr1.slice(p1));
+  };
+  if(p2 < arr2.length) {
+    mergedArr = mergedArr.concat(arr2.slice(p2));
+  }
+  return mergedArr;
 }
+
+
+function mergeSort(arr) {
+  if(arr.length < 2) {
+    return arr;
+  }
+  let mid = Math.floor(arr.length / 2);
+  let leftHalf = arr.slice(0, mid);
+  let rightHalf = arr.slice(mid);
+  return(merge(mergeSort(leftHalf), mergeSort(rightHalf)));
+}
+
 module.exports = mergeSort;
