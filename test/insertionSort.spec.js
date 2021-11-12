@@ -13,7 +13,7 @@ describe('Insertion Sort Algorithm', () => {
     expect(insertionSort(arr3)).to.eql([1, 2, 3, 4, 5]);
 
     let arr4 = [9, 8, 7, 6, 5];
-    expec(insertionSort(arr4)).to.eql([5, 6, 7, 8, 9]);
+    expect(insertionSort(arr4)).to.eql([5, 6, 7, 8, 9]);
 
     let arr5 = [109, 23, 457, 2, 1, 300];
     expect(insertionSort(arr5)).to.eql([1, 2, 23, 109, 300, 457]);
