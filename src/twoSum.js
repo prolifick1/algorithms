@@ -3,7 +3,7 @@ function twoSum(nums, target) {
   for(let i = 0; i < nums.length; i++) {
     let needed = target - nums[i];
     if(seen.has(needed)) {
-      return [seen.get(needed), i];
+      return([seen.get(needed), i]);
     } else {
       seen.set(nums[i], i);
     }

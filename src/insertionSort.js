@@ -18,14 +18,15 @@ Time & Space Complexity
 
 const insertionSort = arr => {
   for(let i = 1; i < arr.length; i++) {
-    let k = i -1;
-    let newVal = arr[i];
-    for(k; k >= 0 && arr[k] > newVal; k--) {
-      arr[k+1] = arr[k]
+    let k = i - 1;
+    let newNum = arr[i];
+    for(k; k >= 0 && arr[k] > newNum; k--) {
+      arr[k+1] = arr[k];
     }
-    arr[k+1] = newVal;
+    arr[k+1] = newNum;
   }
- return arr; 
+  return arr;
+
 };
 
 module.exports = insertionSort;

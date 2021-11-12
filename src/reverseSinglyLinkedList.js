@@ -1,15 +1,5 @@
 'use strict';
-
-/**
- * Creates a singly linked list node.
- * @constructor
- * @param {Object} data The data associated with this node.
- * @param {SinglyLinkedList} next The next node in the linked list.
- */
-function SinglyLinkedList(data, next) {
-  this.data = data;
-  this.next = next;
-}
+let { ListNode } = require('../test/utils.js');
 
 /**
  * Reverse a {@link SinglyLinkedList}.
@@ -29,6 +19,5 @@ function reverseSingly(head) {
 }
 
 module.exports = {
-  SinglyLinkedList: SinglyLinkedList,
   reverseSingly: reverseSingly
 };
