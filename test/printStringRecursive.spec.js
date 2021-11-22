@@ -6,7 +6,11 @@ let sinonChai = require("sinon-chai");
 let expect = chai.expect;
 chai.use(sinonChai);
 
+
 describe('printStrignRecursive()', function() {
+  afterEach(function() {
+    sinon.restore();
+  });
   it('recursively prints out all the characters passed in a string', function() {
     sinon.spy(console, 'log');
 
@@ -24,4 +28,5 @@ describe('printStrignRecursive()', function() {
 
     expect(printSpy.callCount).to.equal(5);
   });
+
 });
