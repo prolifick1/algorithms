@@ -2,7 +2,7 @@ const sockMerchant = require('../src/sockMerchant.js');
 const { expect } = require('chai');
 
 describe('#sockMerchant', function() {
-  it('is a function', function() {
+  xit('is a function', function() {
     expect(sockMerchant).to.be.a('Function');
   });
   xit('finds no pairs when no pairs in array', function() {
