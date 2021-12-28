@@ -3,6 +3,13 @@ function ListNode(val) {
   this.next = null;
 }
 
+function TreeNode(val) {
+      return {
+	        val,
+	        left:null,
+	        right:null
+	    }
+}
 
 function linkedListToArray(list) {
     const result = [];
@@ -35,5 +42,6 @@ function arrayToLinkedList(array) {
 module.exports = { 
   ListNode,
   arrayToLinkedList,
-  linkedListToArray
+  linkedListToArray,
+  TreeNode
 }
